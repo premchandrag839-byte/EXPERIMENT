@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global font family (single line to change/remove later) */
+:root { --app-font-family: "Math Sans Italic", "Inter", "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", Helvetica, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji"; }
+
+/* Apply site-wide without touching colors/spacing */
+:where(html, body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, textarea, select, label, small, strong, em, blockquote, li, dt, dd, code, pre, th, td) {
+  font-family: var(--app-font-family);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Smoothen transforms and hover effects globally without altering design */
+* { 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Elevate navbar on scroll (shadow added via small JS in _app route transition) */
+.scrolled-nav {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+}
+
+/* Placeholder image helper */
+.placeholder-bg {
+  @apply bg-gradient-to-br from-blue-100 via-blue-50 to-white;
+}
+
+.video-background {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the area without distortion */
+  z-index: -1; /* Behind the content */
+}
+
+.content {
+  position: absolute; /* Change to absolute for top-left positioning */
+  top: 10%; /* Position near the top */
+  left: 5%; /* Position near the left */
+  z-index: 1;
+  text-align: left; /* Align text to the left */
+  color: red; /* Change text color to red */
+  animation: fadeIn 2s ease-in-out; /* Retain fade-in animation */
+}
+
+/* Achievements animations */
+.animate-fade-in { animation: fadeIn 300ms ease-out both; }
+.animate-card-flip { animation: cardFlip 450ms ease-out both; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px) scale(.98); } to { opacity: 1; transform: none; } }
+@keyframes cardFlip { from { transform: rotateY(-90deg); opacity: 0; } to { transform: rotateY(0deg); opacity: 1; } }
+
+.middle-top {
+  position: absolute;
+  bottom: 10%; /* Position near the bottom */
+  right: 5%; /* Position near the right */
+  transform: none; /* Remove centering transform */
+  color: blue; /* Set text color to blue */
+  font-size: 4rem;
+  text-align: right; /* Align text to the right */
+  animation: fadeIn 2s ease-in-out; /* Retain fade-in animation */
+}
+
+h1 {
+  font-size: 4rem;
+  animation: slideIn 1.5s ease-in-out; /* Slide-in animation for heading */
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  animation: bounceIn 2s ease-in-out; /* Bounce-in animation for button */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ---- Experiment-only demo sections (safe to remove) ---- */
+.section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+}
+.section:nth-child(odd) {
+  background: #1e293b;
+}
+.section:nth-child(even) {
+  background: #334155;
+}
+
+/* ---- iPhone unlock animation (experiment, safe to remove) ---- */
+@keyframes iphoneUnlock {
+  0% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.iphone-unlock-animate {
+  animation: iphoneUnlock 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}

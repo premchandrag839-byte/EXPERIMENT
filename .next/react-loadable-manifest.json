@@ -1,0 +1,16 @@
+{
+  "components\\SmoothScrollExperiment.js -> gsap": {
+    "id": "components\\SmoothScrollExperiment.js -> gsap",
+    "files": []
+  },
+  "components\\SmoothScrollExperiment.js -> gsap/ScrollTrigger": {
+    "id": "components\\SmoothScrollExperiment.js -> gsap/ScrollTrigger",
+    "files": []
+  },
+  "components\\SmoothScrollExperiment.js -> lenis": {
+    "id": "components\\SmoothScrollExperiment.js -> lenis",
+    "files": [
+      "static/chunks/node_modules_lenis_dist_lenis_mjs.js"
+    ]
+  }
+}
