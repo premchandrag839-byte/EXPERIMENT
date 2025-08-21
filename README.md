@@ -195,8 +195,8 @@ This project is licensed under the MIT License.
 ## 📞 Support
 
 For support or questions:
-- Email: info@blueridgeschool.edu
-- Phone: +1 234 567 890
+- Email: akashinterclg@gmail.com
+- Phone: +91 9839035500/8423594986
 
 ---
 

@@ -1,6 +1,7 @@
 import Footer from "../components/Footer";
 import Section from "../components/Section";
 import SEO from "../components/SEO";
+import Image from 'next/image';
 
 export default function PrePrimaryPage() {
   return (
@@ -13,8 +14,15 @@ export default function PrePrimaryPage() {
             Our Play Group, Nursery, LKG, and UKG classes offer a caring space where curiosity grows, creativity thrives, and the foundation for lifelong learning is built. We focus on social skills, language development, early numeracy, and joyful exploration through stories, music, art, and hands-on activities.
           </p>
           <div className="grid grid-cols-2 gap-4">
-            {[1,2,3,4].map((i) => (
-              <div key={i} className="h-32 sm:h-40 w-full rounded-lg placeholder-bg" />
+            {[
+              '/assets/images/academics/pre-primary/1.jpg',
+              '/assets/images/academics/pre-primary/2.jpg',
+              '/assets/images/academics/pre-primary/3.jpg',
+              '/assets/images/academics/pre-primary/4.jpg',
+            ].map((src, i) => (
+              <div key={src} className="relative h-32 sm:h-40 w-full rounded-lg overflow-hidden">
+                <Image src={src} alt={`Pre-Primary ${i + 1}`} fill className="object-cover" />
+              </div>
             ))}
           </div>
         </div>

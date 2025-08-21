@@ -1,6 +1,7 @@
 import Footer from "../components/Footer";
 import Section from "../components/Section";
 import SEO from "../components/SEO";
+import Image from 'next/image';
 
 export default function MiddlePage() {
   return (
@@ -12,8 +13,15 @@ export default function MiddlePage() {
             The Middle Section focuses on deepening subject knowledge while encouraging independent thinking and problem-solving skills. Through interdisciplinary projects, practical learning experiences, and skill-based activities, students gain the confidence and competence needed for future academic success.
           </p>
           <div className="grid grid-cols-2 gap-4">
-            {[1,2,3,4].map((i) => (
-              <div key={i} className="h-32 sm:h-40 w-full rounded-lg placeholder-bg" />
+            {[
+              '/assets/images/academics/middle/1.jpg',
+              '/assets/images/academics/middle/2.jpg',
+              '/assets/images/academics/middle/3.jpg',
+              '/assets/images/academics/middle/4.jpg',
+            ].map((src, i) => (
+              <div key={src} className="relative h-32 sm:h-40 w-full rounded-lg overflow-hidden">
+                <Image src={src} alt={`Middle ${i + 1}`} fill className="object-cover" />
+              </div>
             ))}
           </div>
         </div>

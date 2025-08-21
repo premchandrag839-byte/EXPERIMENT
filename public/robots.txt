@@ -1,0 +1,8 @@
+# Update the domain below to your production URL
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /scroll-test
+
+Sitemap: https://example.com/sitemap.xml

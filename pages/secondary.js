@@ -1,6 +1,7 @@
 import Footer from "../components/Footer";
 import Section from "../components/Section";
 import SEO from "../components/SEO";
+import Image from 'next/image';
 
 export default function SecondaryPage() {
   return (
@@ -12,8 +13,15 @@ export default function SecondaryPage() {
             The Secondary Section focuses on comprehensive subject mastery, analytical thinking, and skill enhancement. At this stage, students dive deeper into core subjects while applying concepts through projects, discussions, and practical learning experiences. With a strong emphasis on board examination preparation, we guide students to excel academically, build confidence, and make informed choices for their future academic and career pursuits.
           </p>
           <div className="grid grid-cols-2 gap-4">
-            {[1,2,3,4].map((i) => (
-              <div key={i} className="h-32 sm:h-40 w-full rounded-lg placeholder-bg" />
+            {[
+              '/assets/images/academics/secondary/1.jpg',
+              '/assets/images/academics/secondary/2.jpg',
+              '/assets/images/academics/secondary/3.jpg',
+              '/assets/images/academics/secondary/4.jpg',
+            ].map((src, i) => (
+              <div key={src} className="relative h-32 sm:h-40 w-full rounded-lg overflow-hidden">
+                <Image src={src} alt={`Secondary ${i + 1}`} fill className="object-cover" />
+              </div>
             ))}
           </div>
         </div>

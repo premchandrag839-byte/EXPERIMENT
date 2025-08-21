@@ -1,0 +1,19 @@
+akashcollege_2005
+akaasshsir@2005 this is mangodb
+
+admin akashcollege@2005
+akaasshsir@2005
+
+gmail akashinterclg@gmail.com
+akaassh@2005
+
+http://localhost:3000/admin/notices
+
+
+NOTIFY_EMAIL_USER=akashinterclg@gmail.com
+NOTIFY_EMAIL_PASS=gmfn yhex vajj kdub
+
+
+MONGODB_URI=mongodb+srv://akashcollege_2005:akaasshsir%402005@schooldb.duh4ya8.mongodb.net/school?retryWrites=true&w=majority
+NOTIFY_EMAIL_USER=akashinterclg@gmail.com
+NOTIFY_EMAIL_PASS=gmfnyhexvajjkdub

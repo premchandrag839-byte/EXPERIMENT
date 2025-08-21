@@ -1,5 +1,6 @@
 import '../styles/globals.css'; // Adjust path if needed
 import Script from 'next/script';
+import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/router';
@@ -15,9 +16,12 @@ function MyApp({ Component, pageProps }) {
         strategy="beforeInteractive" 
       />
       <Script 
-        src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js" 
+        src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js" 
         strategy="beforeInteractive" 
       />
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+      </Head>
       <SmoothScrollExperiment>
         <div className="min-h-screen flex flex-col">
           <Navbar /> {/* Add navigation here */}
@@ -34,6 +38,7 @@ function MyApp({ Component, pageProps }) {
                 <Component {...pageProps} />
               </motion.div>
             </AnimatePresence>
+            {/* Removed floating Admission button as requested */}
           </main>
         </div>
       </SmoothScrollExperiment>

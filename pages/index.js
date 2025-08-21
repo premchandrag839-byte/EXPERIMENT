@@ -1,11 +1,12 @@
 import Head from 'next/head';
 import HeroVanta from '../components/HeroVanta';
-import SEO from "../components/SEO";
 import Slider from "../components/Slider";
 import Section from "../components/Section";
 import Footer from "../components/Footer";
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import InteractiveModal from '../components/InteractiveModal';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export default function HomePage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -16,37 +17,43 @@ export default function HomePage() {
       key: 'modern-classrooms',
       title: 'Modern Classrooms',
       description: 'More Than 30 classrooms designed for interactive learning, fostering creativity, collaboration, and active student engagement',
-      image: 'https://gmiu.edu.in/gmiu/website/campus/images/1.webp',
+      image: '/assets/images/why-us/modern-classrooms.jpg',
+    },
+    {
+      key: 'smart-library',
+      title: 'Smart Library',
+      description: 'Our Smart library is fully air-conditioned and designed to provide students with a peaceful and comfortable learning environment. With thousands of books, journals, and digital resources, it opens the door to knowledge beyond the classroom. Equipped with cozy seating, an easy-to-use catalog system, and quiet study areas, the library encourages reading habits, research skills, and academic excellence.',
+      image: '/images/library.jpg',
     },
     {
       key: 'qualified-faculty',
       title: 'Qualified Faculty',
       description: 'Our school is proud to have over 30 highly qualified and experienced teachers, dedicated to nurturing each student’s potential. Their expertise and guidance ensure quality education, personal growth, and academic excellence',
-      image: 'https://www.shutterstock.com/image-photo/young-businessman-business-conference-room-260nw-1251225550.jpg',
+      image: '/assets/images/why-us/qualified-faculty.jpg',
     },
     {
       key: 'sports-arts',
       title: 'Sports & Arts',
       description: 'We offer diverse sports and arts programs that promote physical fitness, creativity, and teamwork. From playground to stage, students develop discipline, confidence, and a well-rounded personality.',
-      image: 'https://www.2classnotes.com/wp-content/uploads/2021/07/importance-of-games-and-sports.jpg',
+      image: '/assets/images/why-us/sports-arts.jpg',
     },
     {
       key: 'nextgen-labs',
       title: 'NextGen Labs',
       description: 'Equipped with modern technology and advanced tools, our NextGen Labs provide hands-on learning in science, technology, and innovation. They inspire curiosity, critical thinking, and practical skills for the future.',
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3WWzH-dJQPMrDD29AHfbXovdLavKCNgH-Ww&s',
+      image: '/assets/images/why-us/nextgen-labs.jpg',
     },
     {
       key: 'playground',
       title: 'Playground',
       description: 'Our large and well-maintained playground encourages physical fitness, teamwork, and sportsmanship. It offers students the space to play, practice, and develop a healthy, active lifestyle.',
-      image: 'https://www.playlsi.com/globalassets/products/product-lines/ourproductlines_2024_01_1440x.jpg',
+      image: '/assets/images/why-us/playground.jpg',
     },
     {
       key: 'transport',
       title: 'Transport',
       description: 'With 20+ well-maintained vehicles, our school provides safe, reliable, and comfortable transport facilities. We ensure timely pick-up and drop-off, making education and activities accessible for every studets.',
-      image: 'https://motorfloor.com/blog/wp-content/uploads/2024/03/group-min.jpg',
+      image: '/assets/images/why-us/transport.jpg',
     },
   ];
 
@@ -98,15 +105,20 @@ export default function HomePage() {
       <Section title="Why Choose Us" subtitle="Holistic development through academics, sports, and arts.">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((f) => (
-            <button
+            <motion.button
               key={f.key}
+              whileHover={{ y: -6, rotateX: 3, rotateY: -3 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               onClick={() => openFeature(f)}
-              className="text-left rounded-lg border border-blue-100 p-6 hover:shadow-lg transition focus:outline-none focus:ring-2 focus:ring-primary/50"
+              style={{ transformStyle: 'preserve-3d' }}
+              className="group text-left rounded-2xl p-6 bg-white/50 dark:bg-white/10 backdrop-blur-md border border-white/40 shadow-sm hover:shadow-xl transition focus:outline-none focus:ring-2 focus:ring-primary/40"
             >
-              <div className="h-12 w-12 rounded bg-primary/10 text-primary flex items-center justify-center mb-3">★</div>
-              <h3 className="font-semibold text-gray-800">{f.title}</h3>
-              <p className="text-sm text-gray-600 mt-1">{f.description.length > 120 ? f.description.slice(0, 117) + '…' : f.description}</p>
-            </button>
+              <div className="h-14 w-14 rounded-xl bg-gradient-to-br from-indigo-500/20 via-sky-400/20 to-emerald-400/20 text-primary flex items-center justify-center mb-3">
+                <span className="text-xl">★</span>
+              </div>
+              <h3 className="font-semibold text-gray-800 dark:text-gray-100">{f.title}</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">{f.description.length > 120 ? f.description.slice(0, 117) + '…' : f.description}</p>
+            </motion.button>
           ))}
         </div>
       </Section>
@@ -114,16 +126,22 @@ export default function HomePage() {
       <Section title="Upcoming Events" subtitle="Stay updated with school activities and announcements.">
         <div className="grid gap-6 md:grid-cols-3">
           {events.map((ev) => (
-            <button
+            <motion.button
               key={ev.key}
               onClick={() => openFeature(ev)}
-              className="text-left rounded-xl border border-blue-100 p-5 hover:shadow-md transition focus:outline-none focus:ring-2 focus:ring-primary/50"
+              whileHover={{ y: -4 }}
+              className="group text-left rounded-2xl border border-white/40 bg-white/50 dark:bg-white/10 backdrop-blur-md p-5 shadow-sm hover:shadow-xl transition focus:outline-none focus:ring-2 focus:ring-primary/40"
             >
-              <div className="h-40 w-full rounded-lg placeholder-bg" />
-              <h4 className="mt-3 font-semibold text-gray-800">{ev.title}</h4>
-              <p className="text-sm text-gray-600">{ev.description.length > 120 ? ev.description.slice(0, 117) + '…' : ev.description}</p>
-              <span className="mt-3 inline-block text-primary hover:underline">Learn more</span>
-            </button>
+              <div className="relative h-40 w-full overflow-hidden rounded-lg">
+                <Image src={ev.image} alt={ev.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+              </div>
+              <h4 className="mt-3 font-semibold text-gray-800 dark:text-gray-100">{ev.title}</h4>
+              <p className="text-sm text-gray-600 dark:text-gray-300">{ev.description.length > 120 ? ev.description.slice(0, 117) + '…' : ev.description}</p>
+              <span className="mt-3 inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500 px-3 py-1.5 text-white">
+                Learn more
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
+            </motion.button>
           ))}
         </div>
       </Section>
@@ -133,41 +151,82 @@ export default function HomePage() {
     </div>
   );
 }
-
-import { useEffect } from 'react';
 function HomeNotices() {
   const [items, setItems] = useState([]);
+  const listRef = useRef(null);
+  const [paused, setPaused] = useState(false);
   useEffect(() => {
     async function load() {
-      const res = await fetch('/api/notices?page=1&limit=5');
-      const json = await res.json();
-      setItems(json.items || []);
+      try {
+        const res = await fetch('/api/notices?page=1&limit=7');
+        if (!res.ok) throw new Error('Failed to load notices');
+        const json = await res.json();
+        setItems(Array.isArray(json.items) ? json.items : []);
+      } catch (_) {
+        // Gracefully degrade: show "No notices yet." without throwing
+        setItems([]);
+      }
     }
     load();
   }, []);
+  useEffect(() => {
+    const el = listRef.current;
+    if (!el) return;
+    let raf;
+    const step = () => {
+      if (!paused) {
+        el.scrollTop += 0.5;
+        if (el.scrollTop >= el.scrollHeight - el.clientHeight - 1) {
+          el.scrollTop = 0;
+        }
+      }
+      raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [paused, items.length]);
   function formatDisplayDate(ymd) {
     if (!ymd) return '';
     const parts = String(ymd).slice(0, 10).split('-');
     if (parts.length === 3) {
       const [yyyy, mm, dd] = parts;
-      return `Date: ${dd.padStart(2,'0')}/${mm.padStart(2,'0')}/${yyyy}`;
+      return `${dd.padStart(2,'0')}/${mm.padStart(2,'0')}/${yyyy}`;
     }
     return String(ymd);
   }
   return (
-    <div className="rounded-xl border border-blue-100 p-4 bg-white/80">
-      <div className="space-y-3">
-        {items.length === 0 && <p className="text-gray-600">No notices yet.</p>}
-        {items.map(n => (
-          <div key={n.id} className="border-b last:border-0 border-blue-100 pb-3">
-            <h4 className="font-semibold text-gray-800">{n.title}</h4>
-            <p className="text-xs text-gray-500 mt-1">{formatDisplayDate(n.date)}</p>
-            {n.description && <p className="text-sm text-gray-700 mt-1">{n.description}</p>}
-          </div>
-        ))}
+    <div className="rounded-2xl border border-white/40 bg-white/70 dark:bg-white/10 backdrop-blur p-4 shadow-sm">
+      <div
+        ref={listRef}
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+        className="notice-ticker space-y-3 pr-2 max-h-64 overflow-y-auto"
+      >
+        {items.length === 0 && <p className="text-gray-600 dark:text-gray-300">No notices yet.</p>}
+        {items.map(n => {
+          const isImportant = n.important || /important|urgent/i.test(n.title || '');
+          return (
+            <div key={n.id} className="border-b last:border-0 border-blue-100/50 dark:border-white/10 pb-3">
+              <div className="flex items-center gap-2">
+                <h4 className="font-semibold text-gray-800 dark:text-gray-100">{n.title}</h4>
+                {isImportant && (
+                  <span className="inline-flex items-center gap-1 rounded-full bg-yellow-400/90 text-black text-[10px] font-semibold px-2 py-0.5">Important</span>
+                )}
+              </div>
+              <p className="mt-1 flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400">
+                <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2a1 1 0 0 0-1 1v1H5a3 3 0 0 0-3 3v11a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3h-1V3a1 1 0 1 0-2 0v1H8V3a1 1 0 0 0-1-1Zm12 8H5v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8Z"/></svg>
+                {formatDisplayDate(n.date)}
+              </p>
+              {n.description && <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">{n.description}</p>}
+            </div>
+          );
+        })}
       </div>
       <div className="pt-4">
-        <a href="/notices" className="inline-block px-4 py-2 rounded bg-primary text-white hover:bg-primary-dark">View All Notices</a>
+        <a href="/notices" className="inline-flex items-center gap-1 px-4 py-2 rounded-full bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500 text-white">
+          View All Notices
+          <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
       </div>
     </div>
   );

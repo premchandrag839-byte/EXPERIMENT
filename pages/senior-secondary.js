@@ -1,6 +1,7 @@
 import Footer from "../components/Footer";
 import Section from "../components/Section";
 import SEO from "../components/SEO";
+import Image from 'next/image';
 
 export default function SeniorSecondaryPage() {
   return (
@@ -12,8 +13,15 @@ export default function SeniorSecondaryPage() {
             The Senior Secondary Section offers specialized Science streams with Mathematics and Biology options, providing students with in-depth knowledge and research-oriented learning. We emphasize advanced problem-solving, critical analysis, and career-focused skills, ensuring that learners are well-prepared for higher education in prestigious institutions. This stage empowers them to excel in competitive exams, thrive in their chosen fields, and contribute meaningfully to the world of science, technology, and innovation.
           </p>
           <div className="grid grid-cols-2 gap-4">
-            {[1,2,3,4].map((i) => (
-              <div key={i} className="h-32 sm:h-40 w-full rounded-lg placeholder-bg" />
+            {[
+              '/assets/images/academics/senior-secondary/1.jpg',
+              '/assets/images/academics/senior-secondary/2.jpg',
+              '/assets/images/academics/senior-secondary/3.jpg',
+              '/assets/images/academics/senior-secondary/4.jpg',
+            ].map((src, i) => (
+              <div key={src} className="relative h-32 sm:h-40 w-full rounded-lg overflow-hidden">
+                <Image src={src} alt={`Senior Secondary ${i + 1}`} fill className="object-cover" />
+              </div>
             ))}
           </div>
         </div>

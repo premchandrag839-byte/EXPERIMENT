@@ -4,7 +4,7 @@ import Section from "../components/Section";
 import SEO from "../components/SEO";
 import { AnimatePresence, motion } from "framer-motion";
 
-const images = Array.from({ length: 30 }, (_, i) => ({
+const images = Array.from({ length: 50 }, (_, i) => ({
   id: i + 1,
   src: `/assets/gallery/${i + 1}.jpg`,
   alt: `Gallery image ${i + 1}`
@@ -17,7 +17,7 @@ export default function GalleryPage() {
     <div className="font-inter">
       <SEO title="Gallery" description="Explore Akash Inter College campus and events in our photo gallery." />
 
-      <Section title="Photo Gallery" subtitle="Hover to preview. Click to open lightbox.">
+      <Section title="Photo Gallery" subtitle="Where every picture tells a story.">
         <p className="text-center text-gray-600 max-w-3xl mx-auto mb-6">
           Our Photo Gallery captures the vibrant spirit of Akash Inter College — from academic achievements and cultural celebrations to sports events and joyful classroom moments. Each photograph is a treasured memory, reflecting the dedication of our students, the guidance of our teachers, and the lively atmosphere of our school community.
         </p>

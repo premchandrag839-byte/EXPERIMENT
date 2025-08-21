@@ -1,9 +1,1 @@
-{
-  "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
-  "/admin/notices": "pages/admin/notices.js",
-  "/": "pages/index.js",
-  "/admissions": "pages/admissions.js",
-  "/api/notices": "pages/api/notices.js"
-}
+{"/_error":"pages/_error.js","/_document":"pages/_document.js","/_app":"pages/_app.js","/achievements":"pages/achievements.html","/about":"pages/about.html","/achievements/2024/high-school":"pages/achievements/2024/high-school.html","/academics":"pages/academics.html","/achievements/2024/intermediate":"pages/achievements/2024/intermediate.html","/achievements/2025/high-school":"pages/achievements/2025/high-school.html","/achievements/2025/intermediate":"pages/achievements/2025/intermediate.html","/admin/notices":"pages/admin/notices.html","/admissions":"pages/admissions.html","/api/notices/[id]":"pages/api/notices/[id].js","/api/enquiry":"pages/api/enquiry.js","/contact":"pages/contact.html","/middle":"pages/middle.html","/api/notices":"pages/api/notices.js","/":"pages/index.html","/gallery":"pages/gallery.html","/notices":"pages/notices.html","/pre-primary":"pages/pre-primary.html","/faculty":"pages/faculty.html","/primary":"pages/primary.html","/scroll-test":"pages/scroll-test.html","/senior-secondary":"pages/senior-secondary.html","/secondary":"pages/secondary.html","/404":"pages/404.html"}

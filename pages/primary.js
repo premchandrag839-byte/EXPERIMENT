@@ -1,6 +1,7 @@
 import Footer from "../components/Footer";
 import Section from "../components/Section";
 import SEO from "../components/SEO";
+import Image from 'next/image';
 
 export default function PrimaryPage() {
   return (
@@ -12,8 +13,15 @@ export default function PrimaryPage() {
             In the Primary Section, we focus on building strong academic foundations while nurturing creativity, critical thinking, and curiosity. Through interactive lessons, hands-on activities, and value-based learning, students develop essential literacy and numeracy skills along with the confidence to explore the world around them.
           </p>
           <div className="grid grid-cols-2 gap-4">
-            {[1,2,3,4].map((i) => (
-              <div key={i} className="h-32 sm:h-40 w-full rounded-lg placeholder-bg" />
+            {[
+              '/assets/images/academics/primary/1.jpg',
+              '/assets/images/academics/primary/2.jpg',
+              '/assets/images/academics/primary/3.jpg',
+              '/assets/images/academics/primary/4.jpg',
+            ].map((src, i) => (
+              <div key={src} className="relative h-32 sm:h-40 w-full rounded-lg overflow-hidden">
+                <Image src={src} alt={`Primary ${i + 1}`} fill className="object-cover" />
+              </div>
             ))}
           </div>
         </div>

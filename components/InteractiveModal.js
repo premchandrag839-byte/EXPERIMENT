@@ -64,7 +64,9 @@ export default function InteractiveModal({ open, onClose, feature }) {
             <div className="p-6">
               <h3 className="text-xl font-semibold text-gray-900">{feature?.title}</h3>
               {feature?.tagline && <p className="text-sm text-gray-600 mt-1">{feature.tagline}</p>}
-              <p className="mt-3 text-gray-700 leading-relaxed">{feature?.description}</p>
+              {feature?.description && (
+                <p className="mt-3 text-gray-700 leading-relaxed">{feature.description}</p>
+              )}
               <div className="mt-4 flex justify-end">
                 <button onClick={onClose} className="px-4 py-2 rounded bg-primary text-white hover:bg-primary-dark transition-colors">{feature?.buttonLabel || 'Close'}</button>
               </div>

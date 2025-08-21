@@ -16,9 +16,9 @@ export default function Section({ title, subtitle, children }) {
         </motion.div>
         <motion.div
           className="mt-8"
-          initial={{ opacity: 0, y: 24, rotateX: -4 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.55, ease: "easeOut", delay: 0.05 }}
           style={{ transformPerspective: 800 }}
         >

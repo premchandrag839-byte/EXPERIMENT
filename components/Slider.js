@@ -3,8 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const slides = [
   { id: 1, title: "Annual Sports Day", subtitle: "Celebrating talent and teamwork", color: "from-blue-300 to-blue-500" },
-  { id: 2, title: "Science Exhibition", subtitle: "Curiosity in action", color: "from-blue-200 to-blue-400" },
-  { id: 3, title: "Cultural Fest", subtitle: "Diversity and creativity", color: "from-blue-100 to-blue-300" }
+  { id: 2, title: "Science Exhibition", subtitle: "Curiosity in action", color: "from-blue-200 to-blue-400" }
 ];
 
 export default function Slider() {
